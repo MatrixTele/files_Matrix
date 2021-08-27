@@ -4,11 +4,11 @@ Channel Files : https://t.me/MatrixFiles
 ]]
 local function keko_Matrix(data)
     local msg = data.message_
-    redis = (loadfile "./libs/redis.lua")()
+    redis = (loadfile "./File_Libs/redis.lua")()
     database = Redis.connect('127.0.0.1', 6379)
     sudos = dofile('sudo.lua')
     HTTPS = require("ssl.https")
-    JSON = (loadfile  "./libs/dkjson.lua")()
+    JSON = (loadfile  "./File_Libs/dkjson.lua")()
     bot_id_keko = {string.match(token, "^(%d+)(:)(.*)")}
     bot_id = tonumber(bot_id_keko[1])
     msg = data.message_
@@ -38,7 +38,7 @@ local function keko_Matrix(data)
     },
     }, dl_cb, nil)
     end
-    bot = dofile('./libs/utils.lua')
+    bot = dofile('./File_Libs/utils.lua')
     function is_vip(msg)
     user_id = msg.sender_user_id_
     chat_id = msg.chat_id_
