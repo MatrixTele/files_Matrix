@@ -1,8 +1,8 @@
 --[[
-BY : TshAkETEAM
-Channel Files : https://t.me/tshakeFiles
+BY : MatrixTEAM
+Channel Files : https://t.me/MatrixFiles
 ]]
-local function keko_tshake(data)
+local function keko_Matrix(data)
     local msg = data.message_
     redis = (loadfile "./libs/redis.lua")()
     database = Redis.connect('127.0.0.1', 6379)
@@ -43,11 +43,11 @@ local function keko_tshake(data)
     user_id = msg.sender_user_id_
     chat_id = msg.chat_id_
     local var = false
-    local mod = database:sismember('tshake:'..bot_id..'mods:'..chat_id, user_id)  
-    local admin = database:sismember('tshake:'..bot_id..'admins:', user_id)  
-    local owner = database:sismember('tshake:'..bot_id..'owners:'..chat_id, user_id)
-    local creator = database:sismember('tshake:'..bot_id..'creator:'..chat_id, user_id)  
-    local vip = database:sismember('tshake:'..bot_id..'vipgp:'..chat_id, user_id)
+    local mod = database:sismember('Matrix:'..bot_id..'mods:'..chat_id, user_id)  
+    local admin = database:sismember('Matrix:'..bot_id..'admins:', user_id)  
+    local owner = database:sismember('Matrix:'..bot_id..'owners:'..chat_id, user_id)
+    local creator = database:sismember('Matrix:'..bot_id..'creator:'..chat_id, user_id)  
+    local vip = database:sismember('Matrix:'..bot_id..'vip'..chat_id, user_id)
     if mod then var = true end
     if owner then var = true end
     if creator then var = true end
@@ -56,20 +56,20 @@ local function keko_tshake(data)
     for k,v in pairs(sudo_users) do
     if user_id == v then
     var = true end end
-    local keko_add_sudo = redis:get('tshake:'..bot_id..'sudoo'..user_id..'')
+    local keko_add_sudo = redis:get('Matrix:'..bot_id..'sudoo'..user_id..'')
     if keko_add_sudo then var = true end
     return var 
     end
     -----------------------------
-    if text and text == "تفعيل تاك الادمنيه" and database:sismember('tshake:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
-    database:set("tshake:tag:admin:"..bot_id..msg.chat_id_,"tshake")
+    if text and text == "تفعيل تاك الادمنيه" and database:sismember('Matrix:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
+    database:set("Matrix:tag:admin:"..bot_id..msg.chat_id_,"Matrix")
     send(msg.chat_id_, msg.id_, 1, "⚠️┇تم تفعيل تاك الادمنيه", 1, 'html')
     end
-    if text and text == "تعطيل تاك الادمنيه" and database:sismember('tshake:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
-    database:del("tshake:tag:admin:"..bot_id..msg.chat_id_)
+    if text and text == "تعطيل تاك الادمنيه" and database:sismember('Matrix:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
+    database:del("Matrix:tag:admin:"..bot_id..msg.chat_id_)
     send(msg.chat_id_, msg.id_, 1, "⚠️┇تم تعطيل تاك الادمنيه", 1, 'html')
     end
-    if (text and ( text == 'صيح الادمنيه' or text == "تاك للادمنيه" or text == "وين الادمنيه") and (is_vip(msg) or database:get("tshake:tag:admin:"..bot_id..msg.chat_id_))) then 
+    if (text and ( text == 'صيح الادمنيه' or text == "تاك للادمنيه" or text == "وين الادمنيه") and (is_vip(msg) or database:get("Matrix:tag:admin:"..bot_id..msg.chat_id_))) then 
     function cb(t1,t2)
     function kekko(u1,u2)
     local id_send = msg.sender_user_id_
@@ -81,7 +81,7 @@ local function keko_tshake(data)
     for k,v in pairs(t2.members_) do
     if bot_id ~= v.user_id_ then 
     i = i + 1
-    local user_info = database:hgetall('tshake:'..bot_id..'user:'..v.user_id_)
+    local user_info = database:hgetall('Matrix:'..bot_id..'user:'..v.user_id_)
     if user_info and user_info.username then
     new_text = new_text .. i .. " ┇ [@"..user_info.username.."] \n"
     else 
@@ -89,7 +89,7 @@ local function keko_tshake(data)
     end
     end
     end
-    send(msg.chat_id_, msg.id_, 1, new_text, 1, 'TSHAKE')
+    send(msg.chat_id_, msg.id_, 1, new_text, 1, 'Matrix')
     end
     getUser(msg.sender_user_id_, kekko)
     end
@@ -97,10 +97,10 @@ local function keko_tshake(data)
     end   
     end
     return {
-    keko_tshake = keko_tshake,
+    keko_Matrix = keko_Matrix,
     }
     --[[
-    BY : TshAkETEAM
-    Channel Files : https://t.me/tshakeFiles
+    BY : MatrixTEAM
+    Channel Files : https://t.me/MatrixFiles
     ]]
     
