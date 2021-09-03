@@ -2,7 +2,7 @@ local function Reply(msg)
 local text = msg.content_.text_
 if not database:get(bot_id..'Matrix:Reply:Mute'..msg.chat_id_) then
 if text == 'هلو' then
-TextReply = 'ههلو ، 🥳😹💞'
+TextReply = 'ههلو ، 🥳😹💞','هۂَلاا نۨہٰورتت يعمۘري 𖠙 🤤♥️'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
@@ -285,13 +285,13 @@ end
 
 if text == 'تفعيل ردود البوت' and Owner(msg) then
 database:del(bot_id..'Matrix:Reply:Mute'..msg.chat_id_)
-send(msg.chat_id_, msg.id_,'⌔︙تم تفعيل ردود البوت')
+send(msg.chat_id_, msg.id_,'≁⎠ تم تفعيل ردود البوت')
 return false
 end
 
 if text == 'تعطيل ردود البوت' and Owner(msg) then
 database:set(bot_id..'Matrix:Reply:Mute'..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_,'⌔︙تم تعطيل ردود البوت')
+send(msg.chat_id_, msg.id_,'≁⎠ تم تعطيل ردود البوت')
 return false
 end
 
