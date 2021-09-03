@@ -247,8 +247,11 @@ send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
 if text == 'نايمين' then
-TextReply = 'شتࢪيد منهم خليهم نايمين 🙂😹💞'
-send(msg.chat_id_, msg.id_,'['..TextReply..']')
+local texting = {"اخر افلام شاهدتها", 
+"ما هي وظفتك الحياه", 
+" لو بكيفي كان ؟ ", 
+} 
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
 if text == 'اكو احد' then
