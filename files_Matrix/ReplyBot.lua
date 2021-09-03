@@ -1,8 +1,8 @@
 local function Reply(msg)
 local text = msg.content_.text_
 if not database:get(bot_id..'Matrix:Reply:Mute'..msg.chat_id_) then
-if text == 'هلو' then
-TextReply = 'ههلو ، 🥳😹💞','هۂَلاا نۨہٰورتت يعمۘري 𖠙 🤤♥️'
+if text == "هلو" then
+TextReply = "ههلو ، 🥳😹💞","هۂَلاا نۨہٰورتت يعمۘري 𖠙 🤤♥️"
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
@@ -247,11 +247,8 @@ send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
 if text == 'نايمين' then
-local texting = {"اخر افلام شاهدتها", 
-"ما هي وظفتك الحياه", 
-" لو بكيفي كان ؟ ", 
-} 
-send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+TextReply = 'شتࢪيد منهم خليهم نايمين 🙂😹💞'
+send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
 if text == 'اكو احد' then
